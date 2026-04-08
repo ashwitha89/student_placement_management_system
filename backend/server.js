@@ -16,7 +16,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/placement")
 // ✅ Routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/jobs", require("./routes/jobRoutes"));
-app.use("/api/applications", require("./routes/applicationRoutes"));
+app.use("/api/applications", require("./routes/ApplicationRoutes"));
 
 // ✅ Test Route
 app.get("/", (req, res) => {
