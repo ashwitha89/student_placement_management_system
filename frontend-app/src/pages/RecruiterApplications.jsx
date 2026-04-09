@@ -4,13 +4,13 @@ function RecruiterApplications() {
   const [apps, setApps] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/jobs/applications")
+    fetch("https://student-placement-management-system-2.onrender.com/api/jobs/applications")
       .then(res => res.json())
       .then(data => setApps(data))
   }, [])
 
   const accept = async (id) => {
-    await fetch(`http://localhost:5000/api/jobs/accept/${id}`, {
+    await fetch(`https://student-placement-management-system-2.onrender.com/api/jobs/accept/${id}`, {
       method: "POST"
     })
     alert("Accepted ✅")

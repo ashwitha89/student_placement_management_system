@@ -5,12 +5,17 @@ function ViewApplications() {
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/applications")
-      .then(res => setApps(res.data));
+    axios
+      .get("https://student-placement-management-system-2.onrender.com/api/applications")
+      .then(res => setApps(res.data))
+      .catch(err => console.log(err));
   }, []);
 
   const updateStatus = async (id, status) => {
-    await axios.put(`http://localhost:5000/api/applications/${id}`, { status });
+    await axios.put(
+      `https://student-placement-management-system-2.onrender.com/api/applications/${id}`,
+      { status }
+    );
     window.location.reload();
   };
 

@@ -4,13 +4,11 @@ import axios from "axios";
 function StudentDashboard() {
   const [applications, setApplications] = useState([]);
 
-  // ✅ Get logged-in user email from localStorage
   const studentEmail = localStorage.getItem("email");
 
-  // 🔁 Fetch applications
   const fetchApplications = () => {
     axios
-      .get("http://localhost:5000/api/applications")
+      .get("https://student-placement-management-system-2.onrender.com/api/applications")
       .then((res) => setApplications(res.data))
       .catch((err) => console.log(err));
   };
@@ -22,7 +20,6 @@ function StudentDashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ If no email → show all (fallback)
   const filteredApps = studentEmail
     ? applications.filter((app) => app.email === studentEmail)
     : applications;

@@ -5,22 +5,23 @@ function AdminStudents() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/auth")
-      .then(res => setStudents(res.data))
-      .catch(err => console.log(err));
+    axios
+      .get("https://student-placement-management-system-2.onrender.com/api/auth")
+      .then((res) => setStudents(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
       <h2>Students</h2>
 
-      {students.map(user => (
+      {students.map((user) =>
         user.role === "student" && (
           <div key={user._id}>
             <p>{user.name} - {user.email}</p>
           </div>
         )
-      ))}
+      )}
     </div>
   );
 }

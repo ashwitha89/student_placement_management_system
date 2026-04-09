@@ -19,7 +19,11 @@ function ApplyJob() {
       jobId: id
     };
 
-    await axios.post("http://localhost:5000/api/applications", data);
+    await axios.post(
+      "https://student-placement-management-system-2.onrender.com/api/applications",
+      data
+    );
+
     alert("Applied Successfully");
     navigate("/student/dashboard");
   };

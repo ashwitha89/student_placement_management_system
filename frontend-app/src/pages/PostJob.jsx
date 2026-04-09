@@ -17,7 +17,11 @@ function PostJob() {
       description: e.target.description.value
     };
 
-    await axios.post("http://localhost:5000/api/jobs", job);
+    await axios.post(
+      "https://student-placement-management-system-2.onrender.com/api/jobs",
+      job
+    );
+
     alert("Job Posted");
     navigate("/recruiter/dashboard");
   };

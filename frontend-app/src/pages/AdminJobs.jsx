@@ -5,15 +5,17 @@ function AdminJobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/jobs")
-      .then(res => setJobs(res.data));
+    axios
+      .get("https://student-placement-management-system-2.onrender.com/api/jobs")
+      .then((res) => setJobs(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
       <h2>Jobs</h2>
 
-      {jobs.map(job => (
+      {jobs.map((job) => (
         <div key={job._id}>
           <p>{job.title} - {job.company}</p>
         </div>
